@@ -34,6 +34,8 @@
       if (q2 === "hi max") score++;
 
       if (score === 2) {
+        localStorage.setItem("level2_complete", "true");
+  localStorage.setItem("level_progress", "2"); // Save progress!
         document.getElementById("quizForm").style.display = "none";
         document.getElementById("result").innerText = "Correct! +10 Coins!";
         document.getElementById("menu").style.display = "block";
