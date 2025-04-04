@@ -1,1 +1,33 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lesson 1: print()</title>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/skulpt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/skulpt-stdlib.js"></script>
+  <script>
+    function outf(text) {
+      var output = document.getElementById("output");
+      output.innerHTML = text;
+    }
+    function runCode() {
+      var prog = document.getElementById("code").value;
+      Sk.configure({ output: outf, read: builtinRead });
+      Sk.misceval.asyncToPromise(() => Sk.importMainWithBody("<stdin>", false, prog));
+    }
+    function builtinRead(x) {
+      if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+        throw "File not found: '" + x + "'";
+      return Sk.builtinFiles["files"][x];
+    }
+  </script>
+</head>
+<body>
+  <h2>Lesson 1: Python print()</h2>
+  <p>In Python, we use <code>print()</code> to show text.</p>
+  <textarea id="code" rows="4" cols="50">print("Hello, Ronan!")</textarea><br>
+  <button onclick="runCode()">Run</button>
+  <pre id="output"></pre>
+  <br>
+  <a href="../quizzes/quiz1.html">Take Quiz</a>
+</body>
+</html>
