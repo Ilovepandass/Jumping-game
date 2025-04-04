@@ -1,1 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Panda Shop</title></head>
+<body>
+  <h2>Welcome to the Panda Shop!</h2>
+  <p>You have <strong>10 Panda Coins</strong></p>
 
+  <div>
+    <h3>Unlock Jump Upgrade – 10 Coins</h3>
+    <button onclick="buy()">Buy</button>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    function buy() {
+      document.getElementById("message").innerText = "Jump Upgrade unlocked!";
+    }
+  </script>
+
+  <br>
+  <a href="../index.html">Back to Home</a>
+</body>
+</html>
