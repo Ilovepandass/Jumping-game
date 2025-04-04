@@ -11,6 +11,19 @@
   <a href="lessons/lesson1.html">Start Lesson 1</a><br>
   <a href="shop/shop.html">Go to Shop</a>
 
+  <script>
+  const level1Done = localStorage.getItem("level1_complete") === "true";
+  const lesson2Link = document.getElementById("lesson2Link");
+
+  if (level1Done) {
+    lesson2Link.innerText = "Start Lesson 2";
+  } else {
+    lesson2Link.href = "#";
+    lesson2Link.style.color = "gray";
+    lesson2Link.onclick = () => alert("Finish Lesson 1 to unlock this!");
+  }
+</script>
+
   <script src="js/codeRack.js"></script>
 </body>
 </html>
