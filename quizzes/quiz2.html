@@ -3,7 +3,7 @@
 <head><title>Quiz 2</title></head>
 <body>
   <h2>Quiz: Variables</h2>
-  <form onsubmit="return checkQuiz()">
+  <form id="quizForm" onsubmit="return checkQuiz()">
     <p>1. What does this do?<br><code>score = 10</code></p>
     <input type="radio" name="q1" value="a"> Makes a loop<br>
     <input type="radio" name="q1" value="b"> Stores a value<br>
@@ -14,7 +14,15 @@
 
     <button type="submit">Submit</button>
   </form>
-  <p id="result"></p>
+
+  <div id="result"></div>
+
+  <div id="menu" style="display:none;">
+    <h3>You passed!</h3>
+    <a href="../index.html">Home</a><br>
+    <a href="../lessons/lesson3.html">Next Lesson</a><br>
+    <a href="../shop/shop.html">Go to Shop</a>
+  </div>
 
   <script>
     function checkQuiz() {
@@ -25,10 +33,15 @@
       if (q1 && q1.value === "b") score++;
       if (q2 === "hi max") score++;
 
-      document.getElementById("result").innerText =
-        score === 2 ? "Great! +10 Coins!" :
-        score === 1 ? "Almost there!" :
-        "Keep trying!";
+      if (score === 2) {
+        document.getElementById("quizForm").style.display = "none";
+        document.getElementById("result").innerText = "Correct! +10 Coins!";
+        document.getElementById("menu").style.display = "block";
+      } else {
+        document.getElementById("result").innerText =
+          score === 1 ? "Almost! You got 1 right." : "Try again!";
+      }
+
       return false;
     }
   </script>
