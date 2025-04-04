@@ -22,6 +22,12 @@
       const q2 = document.getElementById("q2").value.trim().toLowerCase();
       let score = 0;
 
+      if (score === 2) {
+  localStorage.setItem("level1_complete", "true");
+  document.getElementById("quizForm").style.display = "none";
+  document.getElementById("result").innerText = "Correct! +10 Coins!";
+  document.getElementById("menu").style.display = "block";
+}
       if (q1 && q1.value === "b") score++;
       if (q2 === "ronan") score++;
 
