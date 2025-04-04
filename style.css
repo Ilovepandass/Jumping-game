@@ -1,0 +1,14 @@
+body {
+  background-color: #f0f0f0;
+  font-family: 'Comic Sans MS', sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+a {
+  display: block;
+  margin: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  color: #2c3e50;
+}
